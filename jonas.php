@@ -33,3 +33,4 @@ echo $rezultatas;
 echo '<br>';
 
 echo number_format(0.9954444444, 2, '.', '');
+
