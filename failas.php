@@ -3,14 +3,14 @@
 
 <?php
 $trecias = 5;
-echo ++$trecias;
+// echo ++$trecias;
 echo $trecias;
 
 echo '<br>';
 
-$pirmas = 58888;
+$pirmas = '58888';
 $antras = '7ku kū';
-@$trecias = $pirmas . $antras;
+$trecias = $pirmas . $antras;
 
 echo $trecias;
 
