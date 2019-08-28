@@ -5,66 +5,83 @@ function microtime_float()
     list($usec, $sec) = explode(" ", microtime());
     return ((float)$usec + (float)$sec);
 }
-
-$sourceString = 'Don\'t Be a Menace to South Central While Drinking Your Juice in the Hood Tik nereikia gąsdinti Pietų Centro, geriant sultis pas save kvartale';
-// echo $sourceString . '<br/>';
-
-
-
+$ilgis = 2000;
+$kartojimai = 10000;
+$elementai = 1000;
 $z= 0;
 $news = '';
-while($z < 100000){
+while($z < $ilgis){
     $news .= ' '.$z;
     $z++;
 }
 
+$mm = explode(" ", $news);
+
+//PIRMAS
+$time_start = microtime_float();
+$iii = 0;
+
+while($iii < $kartojimai){
+    $c = implode(" ", array_rand(array_flip($mm), $elementai));
+    $iii++;
+}
+$time_end = microtime_float();
+echo $time_end - $time_start;
+echo '<br>';echo '<br>';
 
 
 $time_start = microtime_float();
 $iii = 0;
 
-while($iii < 100){
-
-$c = implode(" ", array_rand(array_flip(explode(" ", $news)), 10));
-
-$iii++;
+while($iii < $kartojimai){
+    $stringArray = $mm;
+    $array = [];
+        for($i = 0; $i < $elementai; $i++){
+            array_push($array,$stringArray[rand(0,(count($stringArray)-1))]);
+        }
+    $v = implode(' ',$array);
+    $iii++;
 }
+
 $time_end = microtime_float();
 echo $time_end - $time_start;
+
 
 echo '<br>';echo '<br>';
 
 
-/*
-Parašykite kodą, kuris generuotų atsitiktinį stringą su 10 atsitiktine tvarka išdėliotų žodžių, 
-o žodžius generavimui imtų iš 9-me uždavinyje pateiktų dviejų stringų. (reikės masyvo)
- */
-$string1 = "Don't Be a Menace to South Central While Drinking Your Juice in the Hood";
-$string2 = 'Tik nereikia gąsdinti Pietų Centro, geriant sultis pas save kvartale';
-
 $time_start = microtime_float();
 $iii = 0;
 
-while($iii < 100){
+while($iii < $kartojimai){
 
-// $stringArray = explode(' ',str_replace(',', '', $string1));
-// $string2Array = explode(' ',str_replace(',', '', $string2));
+    $masyvas = $mm;
 
+    $masyvo_ilgis = count($masyvas);
 
-// foreach($string2Array as $word)
-//     array_push($stringArray,$word);
-// // print_r($stringArray);
+    $panaudoti_indeksai = [];
 
-$stringArray = explode(" ", $news);
+    $rezultatas = [];
 
+    while(count($panaudoti_indeksai) <= $elementai) {
 
-$array = [];
-    for($i = 0; $i < 10; $i++){
-        array_push($array,$stringArray[rand(0,(count($stringArray)-1))]);
+        while(true) {
+            $indeksas = rand(0, $masyvo_ilgis-1);
+            if(!in_array($indeksas, $panaudoti_indeksai)) {
+                break;
+            }
+        }
+
+        $panaudoti_indeksai[] = $indeksas;
+        
+        $rezultatas[] = $masyvas[$indeksas];
+
     }
-// print_r($array);
-$v = implode(' ',$array);
-$iii++;
+    $v = implode(' ',$rezultatas);
+
+    // echo $v;
+
+    $iii++;
 }
 
 $time_end = microtime_float();
