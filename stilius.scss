@@ -1,0 +1,35 @@
+$color: red;
+@import 'stilius2';
+
+div {
+    color: $color;
+    font-weight: bold;
+}
+
+i {
+    color: $color;
+    font-weight: bold;
+}
+
+
+
+.abc {
+    color: yellowgreen;
+    @media only screen and (min-width: 1000px) { 
+        color: red;
+    }
+    .b {
+        color: blueviolet;
+        @media only screen and (min-width: 800px) { 
+            color: red;
+        }
+        .c{
+            color: greenyellow;
+            @media only screen and (min-width: 600px) { 
+                color: red;
+            }
+        }
+    }
+}
+
+
