@@ -1,4 +1,17 @@
+<?php
+$atsakymai = ['_1'=>'lektuvas','_2'=>'namas','_3'=>'laivas'];
 
+if(!empty($_POST)) {
+    $teisingi = 0;
+    foreach($_POST as $key => $val) {
+        if($val == $atsakymai[$key]) {
+            $teisingi++; 
+        }
+    }
+    echo "<h1>ATSAKYMAS: $teisingi atsakymai t.y ";
+    echo round(100/3*$teisingi,2).'%</h1>';
+}
+?>
 <form action="" method="POST">
 <div style="display:flex;">
 <img src="img/1.jpg" style="width:300px;height:auto;display:inline-block;margin:30px;">
@@ -33,17 +46,4 @@
 
 <button type="submit">SPEK!</button>
 </form>
-<?php
 
-$atsakymai = ['_1'=>'lektuvas','_2'=>'namas','_3'=>'laivas'];
-
-if(!empty($_POST)) {
-    $teisingi = 0;
-    foreach($_POST as $key => $val) {
-        if($val == $atsakymai[$key]) {
-            $teisingi++; 
-        }
-    }
-    echo "ATSAKYMAS: $teisingi atsakymai t.y ";
-    echo round(100/3*$teisingi,2).'%';
-}
