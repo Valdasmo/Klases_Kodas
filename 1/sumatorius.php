@@ -1,19 +1,35 @@
+<?php
+session_start();
 
+
+
+define('DIR', __DIR__);
+
+
+
+
+include __DIR__.'/kodas.php';
+
+?>
 
 <form action="" method="POST">
   X:<br>
-  <input type="text" name="x">
+  <input type="text" name="x" value="<?= $_SESSION['x'] ?? '' ?>">
   <br>
   Y:<br>
-  <input type="text" name="y">
+  <input type="text" name="y" value="<?= $_SESSION['y'] ?? '' ?>">
   <br><br>
-  <input type="submit" value="Submit">
+  <button type="submit" name="sum" value="1">Sumatorius</button>
+  <button type="submit" name="skir" value="1">Skirtumatorius</button>
 </form> 
+
 
 <?php
 
-if(!empty($_POST)) {
-    
-    echo 'Atsakymas: '.((float)$_POST['x'] + (float)$_POST['y']);
-}
+echo $_SESSION['ats'] ?? '';
+ session_unset();
+
+
+
+
 
