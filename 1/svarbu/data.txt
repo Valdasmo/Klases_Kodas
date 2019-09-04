@@ -1,0 +1,10 @@
+Array
+(
+    [0] => Atsakymas: 8
+    [1] => Atsakymas: -3
+    [2] => Atsakymas: -31
+    [3] => Atsakymas: 77
+    [4] => Atsakymas: 77
+    [5] => Atsakymas: 11
+    [6] => Atsakymas: 336666710
+)

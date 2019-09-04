@@ -4,11 +4,13 @@ session_start();
 
 
 define('DIR', __DIR__);
+define('IMG','http://localhost/_36/1/img/');
 
+// _dd(DIR.'/2/kodas.php');
 
+// echo '<img src="'.IMG.'1.jpg'.'">';
 
-
-include __DIR__.'/kodas.php';
+include DIR.'/2/kodas.php';
 
 ?>
 
@@ -26,8 +28,24 @@ include __DIR__.'/kodas.php';
 
 <?php
 
-echo $_SESSION['ats'] ?? '';
- session_unset();
+// if(isset($_SESSION['ats'])) {
+//   foreach($_SESSION['ats'] as $key => $val) {
+//     echo ($key+1) .'. : ' . $val . '<br>';
+//   }
+// }
+
+if (file_exists(DIR.'/svarbu/data.json')) {
+  foreach(json_decode(file_get_contents(DIR.'/svarbu/data.json')) as $key => $val) {
+    echo ($key+1) .'. : ' . $val . '<br>';
+  }
+}
+
+
+
+
+
+
+session_unset();
 
 
 
