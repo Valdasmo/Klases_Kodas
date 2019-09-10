@@ -6,13 +6,16 @@
 // include __DIR__. '/Ziurkenas.php';
 // include __DIR__. '/Papuga.php';
 
-
+use Paroda\Kate;
+use Paroda\Suo;
+use Paroda\BriedzioKrautuve\NaminisGyvunelis;
+use Paroda\BriedzioKrautuve\NaminioGyvunelioInterfeisas;
 
 spl_autoload_register(function ($class) {
 
 
     // project-specific namespace prefix
-    $prefix = '';
+    $prefix = 'Paroda';
 
     // base directory for the namespace prefix
     $base_dir = __DIR__ . '/src-class/';
@@ -40,14 +43,22 @@ spl_autoload_register(function ($class) {
     }
 });
 
+NaminisGyvunelis::$seimininkas = 'Simona';
 
-$g1 = new Kate;
+NaminisGyvunelis::KitasSeimininkasStatinis('Liudas');
+
+echo NaminisGyvunelis::AKIU_SKAICIUS;
+
+
+$g1 = new Kate('Bus Kate');
 $g2 = new Suo;
-$g3 = new Ziurkenas;
+$g3 = new Paroda\Ziurkenas;
 
 
 $g1->balsas();
+// $g1->KitasSeimininkas('Antanas');
 $g2->balsas();
+$g2->seimininkas();
 $g3->balsas();
 
 $g1->maitinimas('kaulas');
@@ -56,9 +67,20 @@ $g1->maitinimas('zuvis');
 $g1->arSotus();
 
 
-$g4 = new Papuga;
+$g4 = new Paroda\Papuga;
 $g4->balsas();
 $g4->maitinimas('kaulas');
 $g4->arSotus();
 $g4->maitinimas('zuvis');
 $g4->arSotus();
+
+$g5 = [];
+
+
+function GyvunelioPasverimas(NaminioGyvunelioInterfeisas $gyvunelis)
+{
+    echo '<br>'.$gyvunelis->svoris().'<br>';
+}
+
+
+GyvunelioPasverimas($g5);
