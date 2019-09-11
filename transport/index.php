@@ -75,13 +75,21 @@ $car2 = new Car;
 
 $car3 = new Bus;
 
+$car4 = new Bus;
+
+Gnoms::gnoms_in_transport($car1->get_in(Gnoms::get_gnoms()));
+
+_dc(Gnoms::get_gnoms());
 
 
-Gnoms::gnoms_in_transport($car1->get_in(100));
-Gnoms::gnoms_in_transport($car3->get_in(55));
-Gnoms::gnoms_in_transport($car2->get_in(55));
+Gnoms::gnoms_in_transport($car3->get_in(Gnoms::get_gnoms()));
+
+_dc(Gnoms::get_gnoms());
 
 
+Gnoms::gnoms_in_transport($car2->get_in(Gnoms::get_gnoms()));
+
+Gnoms::gnoms_in_transport($car4->get_in(Gnoms::get_gnoms()));
 
 _dc(Gnoms::get_gnoms());
 
