@@ -7,7 +7,26 @@ echo '<div style="font-size: 20px; font-weight: 800; margin: 20px;">UAB Banku BA
 $_SESSION['accounts'] = 1;
 
 if(isset($_SESSION['accounts'])) {
-    $stmt = $pdo->query('SELECT * FROM b_clients'); //uzklausa
+    $stmt = $pdo->query("
+
+    SELECT 
+    t1.id as client_id,
+    t1.name,
+    t1.surname,
+    t2.amount,
+    t2.number,
+    t2.id as acc_id
+    FROM b_clients t1
+    INNER JOIN b_accounts t2
+    ON t1.id = t2.client_id;
+    
+    "); //uzklausa
+
+
+
+ _dd($stmt->fetchAll());
+
+
     /****************************************************************************/
 //is statement imu po viena eilute ir darau su ja kazka...
     $count_of_accounts = 0;
